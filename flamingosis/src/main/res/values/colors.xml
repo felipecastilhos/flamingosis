@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="accountAccentLight">#2E2D33</color>
+    <color name="accountAccentDark">#776DF9</color>
+    <color name="accountOverAccentLight">#FFFFFF</color>
+    <color name="accountOverAccentDark">#FFFFFF</color>
+    <color name="cashAccentLight">#1BBC58</color>
+    <color name="cashAccentDark">#F5710C</color>
+    <color name="cashOverAccentLight">#FFFFFF</color>
+    <color name="cashOverAccentDark">#FFB500</color>
+    <color name="wealthAccentLight">#FF9500</color>
+    <color name="wealthAccentDark">#F6678D</color>
+    <color name="wealthOverAccentLight">#FFFFFF</color>
+    <color name="wealthOverAccentDark">#05F277</color>
+    <color name="tradingAccentLight">#007AFF</color>
+    <color name="tradingAccentDark">#7BC491</color>
+    <color name="tradingOverAccentLight">#FFFFFF</color>
+    <color name="tradingOverAccentDark">#FFFFFF</color>
+</resources>

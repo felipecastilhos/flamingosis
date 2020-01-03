@@ -1,0 +1,19 @@
+{ "colors" : [
+        {"accountAccentLight": "#2E2D33"},
+        {"accountAccentDark": "#776DF9"},
+        {"accountOverAccentLight": "#FFFFFF"},
+        {"accountOverAccentDark": "#FFFFFF"},
+        {"cashAccentLight": "#1BBC58"},
+        {"cashAccentDark": "#F5710C"},
+        {"cashOverAccentLight": "#FFFFFF"},
+        {"cashOverAccentDark": "#FFB500"},
+        {"wealthAccentLight": "#FF9500"},
+        {"wealthAccentDark": "#F6678D"},
+        {"wealthOverAccentLight": "#FFFFFF"},
+        {"wealthOverAccentDark": "#05F277"},
+        {"tradingAccentLight": "#007AFF"},
+        {"tradingAccentDark": "#7BC491"},
+        {"tradingOverAccentLight": "#FFFFFF"},
+        {"tradingOverAccentDark": "#FFFFFF"}
+    ]
+}

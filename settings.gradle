@@ -1,0 +1,2 @@
+include ':app', ':flamingosis'
+rootProject.name='DesingSystem'
