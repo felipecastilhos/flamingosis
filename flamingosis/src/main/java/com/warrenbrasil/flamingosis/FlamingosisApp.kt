@@ -9,7 +9,6 @@ open class FlamingosisApp: Application() {
         FlamingosisResources(this, super.getResources(), flamingosis)
     }
 
-
     open val flamingosis: Flamingosis by lazy { Flamingosis.INSTANCE }
 
     override fun onCreate() {

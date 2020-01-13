@@ -5,7 +5,11 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
+import android.util.Log
+import androidx.annotation.MainThread
 import com.warrenbrasil.flamingosis.colors.ColorLoader
+import com.warrenbrasil.flamingosis.inflater.FlamingosisInflationDelegate
+import com.warrenbrasil.flamingosis.inflater.FlamingosisLayoutInflater
 import com.warrenbrasil.flamingosis.sharedpreferences.*
 import com.warrenbrasil.flamingosis.theme.ThemeModel
 import kotlin.properties.Delegates
@@ -56,7 +60,7 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
         lateinit var res: Resources
 
         /**
-         * Initialize Cyanea. This should be done in the [application][Application] class.
+         * Initialize Flamingosis. This should be done in the [application][Application] class.
          */
         @JvmStatic
         fun init(app: Application, res: Resources) {
@@ -83,12 +87,36 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
                             app.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE)
                         return Flamingosis(preferences)
                     } catch (e: UninitializedPropertyAccessException) {
-                        throw IllegalStateException("Cyanea.init must be called before referencing the singleton instance")
+                        throw IllegalStateException("Flamingosis.init must be called before referencing the singleton instance")
                     }
                 }
         }
 
         @JvmStatic
         val INSTANCE: Flamingosis by lazy { Holder.INSTANCE }
+
+        /**
+         * Intercept and create views at inflation time
+         *
+         * @delegate The delegate used to intercept and create views
+         */
+        @JvmStatic
+        @MainThread
+        fun setInflationDelegate(delegate: FlamingosisInflationDelegate) {
+            FlamingosisLayoutInflater.inflationDelegate = delegate
+        }
+
+        /**
+         * Turns on logging for the [Flamingosis] library
+         */
+        @JvmStatic
+        var loggingEnabled = false
+
+        @JvmStatic
+        fun log(tag: String, msg: String, ex: Throwable? = null) {
+            if (loggingEnabled) {
+                Log.d(tag, msg, ex)
+            }
+        }
     }
 }

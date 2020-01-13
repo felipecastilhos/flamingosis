@@ -23,8 +23,6 @@ class MainActivity : FlamingosisActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-
-        helloWorldTextView.setTextColor(ContextCompat.getColor(this, R.color.accountAccentDark))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
