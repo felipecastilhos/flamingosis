@@ -20,6 +20,7 @@ Resources(original.assets, original.displayMetrics, original.configuration) {
     @Throws(NotFoundException::class)
     override fun getColor(id: Int, theme: Theme?): Int = when (id) {
         R.color.accountAccentLight -> flamingosis.themeModel.accountAccentLight?.getColorCode(ctx) ?: throw NotFoundException()
+        R.color.accountAccentDark-> flamingosis.themeModel.accountAccentDark?.getColorCode(ctx) ?: throw NotFoundException()
         R.color.accountOverAccentLight-> flamingosis.themeModel.accountAccentDark?.getColorCode(ctx) ?: throw NotFoundException()
         R.color.accountOverAccentLight-> flamingosis.themeModel.accountAccentLight?.getColorCode(ctx) ?: throw NotFoundException()
         R.color.accountOverAccentDark-> flamingosis.themeModel.accountOverAccentDark?.getColorCode(ctx) ?: throw NotFoundException()

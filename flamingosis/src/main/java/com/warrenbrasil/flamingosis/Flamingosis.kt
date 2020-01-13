@@ -38,7 +38,7 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
         return "{ \"colors\" : [\n" +
                 "        { \"colorName\": \"accountAccent\",\n" +
                 "            \"light\": \"#ffff00\",\n" +
-                "            \"dark\" : \"#ffff00\"\n" +
+                "            \"dark\" : \"#AAFFAA\"\n" +
                 "        }\n" +
                 "    ]\n" +
                 "}"

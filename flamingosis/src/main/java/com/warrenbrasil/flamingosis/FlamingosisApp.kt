@@ -6,13 +6,11 @@ import com.warrenbrasil.flamingosis.resources.FlamingosisResources
 
 open class FlamingosisApp: Application() {
     private val resources: FlamingosisResources by lazy {
-        FlamingosisResources(this, super.getResources(), cyanea)
+        FlamingosisResources(this, super.getResources(), flamingosis)
     }
 
-    /**
-     * The [cyanea][Cyanea] instance used to create the application's resources
-     */
-    open val cyanea: Flamingosis by lazy { Flamingosis.INSTANCE }
+
+    open val flamingosis: Flamingosis by lazy { Flamingosis.INSTANCE }
 
     override fun onCreate() {
         super.onCreate()

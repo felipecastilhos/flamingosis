@@ -24,14 +24,7 @@ class MainActivity : FlamingosisActivity() {
                 .setAction("Action", null).show()
         }
 
-        Flamingosis.init(application, resources)
-
-        helloWorldTextView.setTextColor(ContextCompat.getColor(this, R.color.accountAccentLight))
-
-//        flamingosis.themeModel.accountAccentLight?.getColorCode(this)?.let {
-//            helloWorldTextView.setTextColor(it)
-//        }
-
+        helloWorldTextView.setTextColor(ContextCompat.getColor(this, R.color.accountAccentDark))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
