@@ -6,10 +6,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.util.Log
-import androidx.annotation.MainThread
 import com.warrenbrasil.flamingosis.colors.ColorLoader
-import com.warrenbrasil.flamingosis.inflater.FlamingosisInflationDelegate
-import com.warrenbrasil.flamingosis.inflater.FlamingosisLayoutInflater
 import com.warrenbrasil.flamingosis.sharedpreferences.*
 import com.warrenbrasil.flamingosis.theme.ThemeModel
 import kotlin.properties.Delegates
@@ -95,16 +92,6 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
         @JvmStatic
         val INSTANCE: Flamingosis by lazy { Holder.INSTANCE }
 
-        /**
-         * Intercept and create views at inflation time
-         *
-         * @delegate The delegate used to intercept and create views
-         */
-        @JvmStatic
-        @MainThread
-        fun setInflationDelegate(delegate: FlamingosisInflationDelegate) {
-            FlamingosisLayoutInflater.inflationDelegate = delegate
-        }
 
         /**
          * Turns on logging for the [Flamingosis] library
