@@ -42,11 +42,11 @@ Resources(original.assets, original.displayMetrics, original.configuration) {
         }
     }
 
-    fun FlamingosisResources.solveColor(color: DynamicColor?, id: Int, theme: Theme?): Int {
+    private fun solveColor(color: DynamicColor?, id: Int, theme: Theme?): Int {
         return color?.getColorCode(ctx) ?: getDefaultColorCodeCompat(id, theme)
     }
 
-    fun FlamingosisResources.getDefaultColorCodeCompat(id: Int, theme: Theme?): Int {
+    private fun getDefaultColorCodeCompat(id: Int, theme: Theme?): Int {
         return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             super.getColor(id) else super.getColor(id, theme)
     }

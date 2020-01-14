@@ -18,27 +18,6 @@ inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit)
     editor.apply()
 }
 
-fun SharedPreferences.saveTheme(themeModel: ThemeModel) {
-    val themeModelJson = themeModel.toJson()
-    set("theme", themeModelJson)
-}
-
-fun SharedPreferences.getTheme(): ThemeModel? {
-    val themeModelJson = get<String>("theme")
-    return themeModelJson?.fromJson(ThemeModel::class.java)
-}
-
-fun SharedPreferences.saveColorPallet(palletJsonString: String) {
-    set("pallet", palletJsonString)
-}
-
-
-fun SharedPreferences.getColorPallet(): ColorPallet? {
-    val palletJson = get<String>("pallet")
-    return palletJson?.fromJson(ColorPallet::class.java)
-}
-
-
 fun SharedPreferences.remove(key: String) {
     val editor = this.edit()
     editor.remove(key)
@@ -69,8 +48,4 @@ inline operator fun <reified T : Any> SharedPreferences.get(key: String, default
         Long::class -> getLong(key, defaultValue as? Long ?: -1) as T?
         else -> throw UnsupportedOperationException("Not yet implemented")
     }
-}
-
-fun SharedPreferences.containsAtLeastOne(vararg keys: String): Boolean {
-    return keys.indexOfFirst { contains(it) } != -1
 }
