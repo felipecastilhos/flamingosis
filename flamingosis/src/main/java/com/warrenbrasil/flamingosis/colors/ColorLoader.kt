@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import com.google.gson.Gson
+import com.warrenbrasil.flamingosis.colors.models.ColorPallet
+import com.warrenbrasil.flamingosis.colors.models.DynamicColor
 import com.warrenbrasil.flamingosis.sharedpreferences.get
 import com.warrenbrasil.flamingosis.sharedpreferences.getPrefs
 import com.warrenbrasil.flamingosis.sharedpreferences.set

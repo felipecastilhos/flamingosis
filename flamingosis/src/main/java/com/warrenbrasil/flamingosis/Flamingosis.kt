@@ -7,46 +7,20 @@ import android.content.SharedPreferences
 import android.content.res.Resources
 import android.util.Log
 import com.warrenbrasil.flamingosis.colors.ColorLoader
-import com.warrenbrasil.flamingosis.sharedpreferences.*
+import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.theme.ThemeModel
-import kotlin.properties.Delegates
 
 class Flamingosis private constructor(private val prefs: SharedPreferences) {
 
-    var themeModel by Delegates.notNull<ThemeModel>()
+    var themeModel:ThemeModel? = null
         private set
 
-    private var colorLoader by Delegates.notNull<ColorLoader>()
+    private val colorLoader: ColorLoader by lazy { ColorLoader() }
 
-    init {
-        saveDynamicTheme()
-        loadDefaults()
-    }
 
-    private fun loadDefaults() {
-        themeModel = ThemeModel()
-        colorLoader = ColorLoader()
-        saveCurrentTheme()
+    fun updateTheme(colorPallet: ColorPallet) {
+        colorLoader.saveColors(app, colorPallet)
         themeModel = colorLoader.loadColorList(prefs)
-    }
-
-    private fun saveDynamicTheme() {
-        val palletJsonString = createColorPalletJsonString()
-        prefs.saveColorPallet(palletJsonString)
-    }
-
-    private fun createColorPalletJsonString(): String {
-        return "{ \"colors\" : [\n" +
-                "        { \"colorName\": \"accountAccent\",\n" +
-                "            \"light\": \"#ffff00\",\n" +
-                "            \"dark\" : \"#AAFFAA\"\n" +
-                "        }\n" +
-                "    ]\n" +
-                "}"
-    }
-
-    private fun saveCurrentTheme() {
-        prefs.saveTheme(themeModel)
     }
 
     companion object {
@@ -74,6 +48,10 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
             } catch (e: UninitializedPropertyAccessException) {
                 false
             }
+        }
+
+        fun updateTheme(colorPallet: ColorPallet) {
+            INSTANCE.updateTheme(colorPallet)
         }
 
         private object Holder {

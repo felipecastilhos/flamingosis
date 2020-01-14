@@ -2,6 +2,7 @@ package com.warrenbrasil.flamingosis
 
 import android.app.Application
 import android.content.res.Resources
+import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.resources.FlamingosisResources
 
 open class FlamingosisApp: Application() {
@@ -14,6 +15,17 @@ open class FlamingosisApp: Application() {
     override fun onCreate() {
         super.onCreate()
         Flamingosis.init(this, super.getResources())
+        Flamingosis.updateTheme(createColorPalletJsonString().fromJson(ColorPallet::class.java))
+    }
+
+    private fun createColorPalletJsonString(): String {
+        return "{ \"colors\" : [\n" +
+                "        { \"colorName\": \"accountAccent\",\n" +
+                "            \"light\": \"#ffff00\",\n" +
+                "            \"dark\" : \"#AAFFAA\"\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}"
     }
 
     override fun getResources(): Resources {

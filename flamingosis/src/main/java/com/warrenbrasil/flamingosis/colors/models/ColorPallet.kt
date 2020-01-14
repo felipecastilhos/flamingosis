@@ -1,4 +1,4 @@
-package com.warrenbrasil.flamingosis.colors
+package com.warrenbrasil.flamingosis.colors.models
 
 data class ColorPallet(
     val colors: List<ColorValues>

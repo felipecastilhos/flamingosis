@@ -1,7 +1,8 @@
-package com.warrenbrasil.flamingosis.colors
+package com.warrenbrasil.flamingosis.colors.models
 
 import android.content.Context
 import androidx.annotation.ColorRes
+import com.warrenbrasil.flamingosis.colors.getColorCode
 
 class DynamicColor {
     private var colorResource: Int? = null
@@ -10,11 +11,6 @@ class DynamicColor {
     fun setColor(colorCode: Int?) {
         colorResource = null
         this.colorCode = colorCode
-    }
-
-    fun setColorResource(@ColorRes colorResource: Int?) {
-        colorCode = null
-        this.colorResource = colorResource
     }
 
     fun getColorCode(context: Context): Int? {

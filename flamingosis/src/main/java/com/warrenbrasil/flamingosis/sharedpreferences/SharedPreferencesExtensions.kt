@@ -2,7 +2,7 @@ package com.warrenbrasil.flamingosis.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.warrenbrasil.flamingosis.colors.ColorPallet
+import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.fromJson
 import com.warrenbrasil.flamingosis.theme.ThemeModel
 import com.warrenbrasil.flamingosis.toJson

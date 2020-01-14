@@ -1,6 +1,6 @@
 package com.warrenbrasil.flamingosis.theme
 
-import com.warrenbrasil.flamingosis.colors.DynamicColor
+import com.warrenbrasil.flamingosis.colors.models.DynamicColor
 
 data class ThemeModel(var accountAccentLight: DynamicColor? = null,
                       var accountAccentDark: DynamicColor? = null,
