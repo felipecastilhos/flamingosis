@@ -20,30 +20,30 @@ Resources(original.assets, original.displayMetrics, original.configuration) {
     @SuppressLint("PrivateResource")
     @Throws(NotFoundException::class)
     override fun getColor(id: Int, theme: Theme?): Int = when (id) {
-        R.color.accountAccentLight -> solveColor(flamingosis.themeModel?.accountAccentLight, id, theme)
-        R.color.accountAccentDark-> solveColor(flamingosis.themeModel?.accountAccentDark, id, theme)
-        R.color.accountOverAccentLight-> solveColor(flamingosis.themeModel?.accountAccentDark, id, theme)
-        R.color.accountOverAccentLight-> solveColor(flamingosis.themeModel?.accountAccentLight, id, theme)
-        R.color.accountOverAccentDark-> solveColor(flamingosis.themeModel?.accountOverAccentDark, id, theme)
-        R.color.cashAccentLight-> solveColor(flamingosis.themeModel?.cashAccentLight, id, theme)
-        R.color.cashAccentDark-> solveColor(flamingosis.themeModel?.cashAccentDark, id, theme)
-        R.color.cashOverAccentLight-> solveColor(flamingosis.themeModel?.cashOverAccentLight, id, theme)
-        R.color.cashOverAccentDark -> solveColor(flamingosis.themeModel?.cashOverAccentDark, id, theme)
-        R.color.wealthAccentLight -> solveColor(flamingosis.themeModel?.wealthAccentLight, id, theme)
-        R.color.wealthAccentDark-> solveColor(flamingosis.themeModel?.wealthAccentDark, id, theme)
-        R.color.wealthOverAccentLight -> solveColor(flamingosis.themeModel?.wealthOverAccentLight, id, theme)
-        R.color.wealthOverAccentDark -> solveColor(flamingosis.themeModel?.wealthOverAccentDark, id, theme)
-        R.color.tradingAccentLight-> solveColor(flamingosis.themeModel?.tradingAccentLight, id, theme)
-        R.color.tradingAccentDark-> solveColor(flamingosis.themeModel?.tradingAccentDark, id, theme)
-        R.color.tradingOverAccentLight-> solveColor(flamingosis.themeModel?.tradingOverAccentLight, id, theme)
-        R.color.tradingOverAccentDark-> solveColor(flamingosis.themeModel?.tradingOverAccentDark, id, theme)
+        R.color.accountAccentLight -> flamingosis.themeModel?.accountAccentLight.solveColor(id, theme)
+        R.color.accountAccentDark-> flamingosis.themeModel?.accountAccentDark.solveColor(id, theme)
+        R.color.accountOverAccentLight-> flamingosis.themeModel?.accountAccentDark.solveColor(id, theme)
+        R.color.accountOverAccentLight-> flamingosis.themeModel?.accountAccentLight.solveColor(id, theme)
+        R.color.accountOverAccentDark-> flamingosis.themeModel?.accountOverAccentDark.solveColor(id, theme)
+        R.color.cashAccentLight-> flamingosis.themeModel?.cashAccentLight.solveColor(id, theme)
+        R.color.cashAccentDark-> flamingosis.themeModel?.cashAccentDark.solveColor(id, theme)
+        R.color.cashOverAccentLight-> flamingosis.themeModel?.cashOverAccentLight.solveColor(id, theme)
+        R.color.cashOverAccentDark -> flamingosis.themeModel?.cashOverAccentDark.solveColor(id, theme)
+        R.color.wealthAccentLight -> flamingosis.themeModel?.wealthAccentLight.solveColor(id, theme)
+        R.color.wealthAccentDark-> flamingosis.themeModel?.wealthAccentDark.solveColor(id, theme)
+        R.color.wealthOverAccentLight -> flamingosis.themeModel?.wealthOverAccentLight.solveColor(id, theme)
+        R.color.wealthOverAccentDark -> flamingosis.themeModel?.wealthOverAccentDark.solveColor(id, theme)
+        R.color.tradingAccentLight-> flamingosis.themeModel?.tradingAccentLight.solveColor(id, theme)
+        R.color.tradingAccentDark-> flamingosis.themeModel?.tradingAccentDark.solveColor(id, theme)
+        R.color.tradingOverAccentLight-> flamingosis.themeModel?.tradingOverAccentLight.solveColor(id, theme)
+        R.color.tradingOverAccentDark-> flamingosis.themeModel?.tradingOverAccentDark.solveColor(id, theme)
         else -> {
             getDefaultColorCodeCompat(id, theme)
         }
     }
 
-    private fun solveColor(color: DynamicColor?, id: Int, theme: Theme?): Int {
-        return color?.getColorCode(ctx) ?: getDefaultColorCodeCompat(id, theme)
+    private fun DynamicColor?.solveColor(id: Int, theme: Theme?): Int {
+        return this?.getColorCode(ctx) ?: getDefaultColorCodeCompat(id, theme)
     }
 
     private fun getDefaultColorCodeCompat(id: Int, theme: Theme?): Int {
