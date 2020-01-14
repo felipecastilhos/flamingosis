@@ -2,15 +2,13 @@ package com.warrenbrasil.flamingosis
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
 import android.content.res.Resources
 import android.util.Log
 import com.warrenbrasil.flamingosis.colors.ColorLoader
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.theme.ThemeModel
 
-class Flamingosis private constructor(private val prefs: SharedPreferences) {
+class Flamingosis {
 
     var themeModel: ThemeModel? = null
         private set
@@ -19,12 +17,10 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
 
     fun updateTheme(colorPallet: ColorPallet) {
         colorLoader.saveColors(app, colorPallet)
-        themeModel = colorLoader.loadColorList(app, prefs)
+        themeModel = colorLoader.loadColorList(app)
     }
 
     companion object {
-        const val PREF_FILE_NAME = "FlamingosisPrefs"
-
         @SuppressLint("StaticFieldLeak") // application context is safe
         internal lateinit var app: Application
         lateinit var res: Resources
@@ -57,9 +53,7 @@ class Flamingosis private constructor(private val prefs: SharedPreferences) {
             val INSTANCE: Flamingosis
                 get() {
                     try {
-                        val preferences =
-                            app.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE)
-                        return Flamingosis(preferences)
+                        return Flamingosis()
                     } catch (e: UninitializedPropertyAccessException) {
                         throw IllegalStateException("Flamingosis.init must be called before referencing the singleton instance")
                     }

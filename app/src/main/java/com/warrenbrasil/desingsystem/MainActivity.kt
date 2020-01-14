@@ -19,8 +19,7 @@ class MainActivity : FlamingosisActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-
-        helloWorldTextView.setTextColor(ContextCompat.getColor(this, R.color.accountAccentDark))
+        helloWorldTextView.setTextColor(ContextCompat.getColor(this, R.color.accountAccentLight))
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

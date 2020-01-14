@@ -1,9 +1,7 @@
 package com.warrenbrasil.flamingosis.colors
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Color
-import com.google.gson.Gson
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.colors.models.DynamicColor
 import com.warrenbrasil.flamingosis.fromJson
@@ -14,8 +12,8 @@ import com.warrenbrasil.flamingosis.theme.ThemeModel
 import com.warrenbrasil.flamingosis.toJson
 
 class ColorLoader {
-    fun loadColorList(context: Context, prefs: SharedPreferences): ThemeModel? {
-        val colorPalletJsonString = prefs[PREFS_COLOR_PALLET, ""]
+    fun loadColorList(context: Context): ThemeModel? {
+        val colorPalletJsonString = context.getPrefs()[PREFS_COLOR_PALLET, ""]
         val colorPallet = colorPalletJsonString?.fromJson(ColorPallet::class.java)
         return colorPallet?.toTheme()
     }

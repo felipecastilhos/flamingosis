@@ -2,9 +2,8 @@ package com.warrenbrasil.flamingosis.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.warrenbrasil.flamingosis.Flamingosis
 
-private const val PREFS_NAME = Flamingosis.PREF_FILE_NAME
+private const val PREFS_NAME = "FlamingosisPrefs"
 
 fun Context.getPrefs(): SharedPreferences =
     getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
