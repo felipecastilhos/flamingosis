@@ -1,8 +1,10 @@
-package com.warrenbrasil.flamingosis
+package com.warrenbrasil.flamingosis.app
 
 import android.app.Application
 import android.content.res.Resources
+import com.warrenbrasil.flamingosis.Flamingosis
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
+import com.warrenbrasil.flamingosis.extensions.fromJson
 import com.warrenbrasil.flamingosis.resources.FlamingosisResources
 
 open class FlamingosisApp : Application() {
@@ -15,7 +17,11 @@ open class FlamingosisApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Flamingosis.init(this, super.getResources())
-        Flamingosis.updateTheme(createColorPalletJsonString().fromJson(ColorPallet::class.java))
+        Flamingosis.updateTheme(
+            createColorPalletJsonString().fromJson(
+                ColorPallet::class.java
+            )
+        )
     }
 
     private fun createColorPalletJsonString(): String {

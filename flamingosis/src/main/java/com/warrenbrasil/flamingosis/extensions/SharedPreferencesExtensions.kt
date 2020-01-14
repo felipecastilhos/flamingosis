@@ -1,4 +1,4 @@
-package com.warrenbrasil.flamingosis.sharedpreferences
+package com.warrenbrasil.flamingosis.extensions
 
 import android.content.Context
 import android.content.SharedPreferences

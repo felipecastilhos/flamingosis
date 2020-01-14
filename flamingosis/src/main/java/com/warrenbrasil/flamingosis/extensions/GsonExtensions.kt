@@ -1,4 +1,4 @@
-package com.warrenbrasil.flamingosis
+package com.warrenbrasil.flamingosis.extensions
 
 import com.google.gson.Gson
 

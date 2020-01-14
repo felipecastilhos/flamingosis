@@ -4,12 +4,12 @@ import android.content.Context
 import android.graphics.Color
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.colors.models.DynamicColor
-import com.warrenbrasil.flamingosis.fromJson
-import com.warrenbrasil.flamingosis.sharedpreferences.get
-import com.warrenbrasil.flamingosis.sharedpreferences.getPrefs
-import com.warrenbrasil.flamingosis.sharedpreferences.set
+import com.warrenbrasil.flamingosis.extensions.fromJson
+import com.warrenbrasil.flamingosis.extensions.get
+import com.warrenbrasil.flamingosis.extensions.getPrefs
+import com.warrenbrasil.flamingosis.extensions.set
 import com.warrenbrasil.flamingosis.theme.ThemeModel
-import com.warrenbrasil.flamingosis.toJson
+import com.warrenbrasil.flamingosis.extensions.toJson
 
 class ColorLoader {
     fun loadColorList(context: Context): ThemeModel? {
