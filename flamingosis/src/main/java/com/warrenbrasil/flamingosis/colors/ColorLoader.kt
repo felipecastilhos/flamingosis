@@ -6,6 +6,7 @@ import android.graphics.Color
 import com.google.gson.Gson
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.colors.models.DynamicColor
+import com.warrenbrasil.flamingosis.fromJson
 import com.warrenbrasil.flamingosis.sharedpreferences.get
 import com.warrenbrasil.flamingosis.sharedpreferences.getPrefs
 import com.warrenbrasil.flamingosis.sharedpreferences.set
@@ -13,11 +14,10 @@ import com.warrenbrasil.flamingosis.theme.ThemeModel
 import com.warrenbrasil.flamingosis.toJson
 
 class ColorLoader {
-    fun loadColorList(prefs: SharedPreferences): ThemeModel {
+    fun loadColorList(context: Context, prefs: SharedPreferences): ThemeModel? {
         val colorPalletJsonString = prefs[PREFS_COLOR_PALLET, ""]
-        val gson = Gson()
-        val colorPallet = gson.fromJson<ColorPallet>(colorPalletJsonString, ColorPallet::class.java)
-        return colorPallet.toTheme()
+        val colorPallet = colorPalletJsonString?.fromJson(ColorPallet::class.java)
+        return colorPallet?.toTheme()
     }
 
 
@@ -49,7 +49,7 @@ fun ColorPallet.toTheme(): ThemeModel {
 
             "cashAccent" -> {
                 theme.cashAccentLight = createDynamicColor(it.light)
-                theme.cashAccentDark= createDynamicColor(it.dark)
+                theme.cashAccentDark = createDynamicColor(it.dark)
             }
 
             "cashOverAccent" -> {
@@ -59,7 +59,7 @@ fun ColorPallet.toTheme(): ThemeModel {
 
             "wealthAccent" -> {
                 theme.wealthAccentLight = createDynamicColor(it.light)
-                theme.wealthAccentDark= createDynamicColor(it.dark)
+                theme.wealthAccentDark = createDynamicColor(it.dark)
             }
 
             "wealthOverAccent" -> {
@@ -69,7 +69,7 @@ fun ColorPallet.toTheme(): ThemeModel {
 
             "tradingAccent" -> {
                 theme.tradingAccentLight = createDynamicColor(it.light)
-                theme.tradingAccentDark= createDynamicColor(it.dark)
+                theme.tradingAccentDark = createDynamicColor(it.dark)
             }
             "tradingOverAccent" -> {
                 theme.tradingOverAccentLight = createDynamicColor(it.light)

@@ -2,15 +2,12 @@ package com.warrenbrasil.flamingosis.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.warrenbrasil.flamingosis.colors.models.ColorPallet
-import com.warrenbrasil.flamingosis.fromJson
-import com.warrenbrasil.flamingosis.theme.ThemeModel
-import com.warrenbrasil.flamingosis.toJson
+import com.warrenbrasil.flamingosis.Flamingosis
 
-const val PREFS_NAME = "FlamingoosisPrefs"
+private const val PREFS_NAME = Flamingosis.PREF_FILE_NAME
 
 fun Context.getPrefs(): SharedPreferences =
-        getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
 inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
     val editor = this.edit()
@@ -36,7 +33,10 @@ operator fun SharedPreferences.set(key: String, value: Any?) {
     }
 }
 
-inline operator fun <reified T : Any> SharedPreferences.get(key: String, defaultValue: T? = null): T? {
+inline operator fun <reified T : Any> SharedPreferences.get(
+    key: String,
+    defaultValue: T? = null
+): T? {
     if (!contains(key)) {
         return null
     }

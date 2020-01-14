@@ -8,6 +8,7 @@ import com.warrenbrasil.flamingosis.Flamingosis
 import com.warrenbrasil.flamingosis.R
 import com.warrenbrasil.flamingosis.colors.models.DynamicColor
 
+@Suppress("DEPRECATION")
 class FlamingosisResources (context: Context, original: Resources, private val flamingosis: Flamingosis = Flamingosis.INSTANCE) :
 Resources(original.assets, original.displayMetrics, original.configuration) {
     private val ctx = context

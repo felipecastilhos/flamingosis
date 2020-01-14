@@ -5,7 +5,7 @@ import android.content.res.Resources
 import com.warrenbrasil.flamingosis.colors.models.ColorPallet
 import com.warrenbrasil.flamingosis.resources.FlamingosisResources
 
-open class FlamingosisApp: Application() {
+open class FlamingosisApp : Application() {
     private val resources: FlamingosisResources by lazy {
         FlamingosisResources(this, super.getResources(), flamingosis)
     }

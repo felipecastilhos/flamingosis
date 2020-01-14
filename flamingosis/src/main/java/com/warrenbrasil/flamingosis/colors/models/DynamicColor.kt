@@ -1,7 +1,6 @@
 package com.warrenbrasil.flamingosis.colors.models
 
 import android.content.Context
-import androidx.annotation.ColorRes
 import com.warrenbrasil.flamingosis.colors.getColorCode
 
 class DynamicColor {

@@ -12,19 +12,18 @@ import com.warrenbrasil.flamingosis.theme.ThemeModel
 
 class Flamingosis private constructor(private val prefs: SharedPreferences) {
 
-    var themeModel:ThemeModel? = null
+    var themeModel: ThemeModel? = null
         private set
 
     private val colorLoader: ColorLoader by lazy { ColorLoader() }
 
-
     fun updateTheme(colorPallet: ColorPallet) {
         colorLoader.saveColors(app, colorPallet)
-        themeModel = colorLoader.loadColorList(prefs)
+        themeModel = colorLoader.loadColorList(app, prefs)
     }
 
     companion object {
-        const val PREF_FILE_NAME = "FlamingoosisPrefs"
+        const val PREF_FILE_NAME = "FlamingosisPrefs"
 
         @SuppressLint("StaticFieldLeak") // application context is safe
         internal lateinit var app: Application
